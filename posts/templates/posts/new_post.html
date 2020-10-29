@@ -1,0 +1,28 @@
+{% extends "accounts/authenticated/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block head_block %}
+    <title>{{ user.get_full_name }} - Nova Foto</title>
+{% endblock head_block %}
+
+{% block context %}
+    <div class="col-md-12 bg-danger" id="title">
+        <div class="container">
+            <h3 class="text-center">Nova foto</h3>
+        </div>
+    </div>
+    <section class="mt-5" id="">
+        <div class="container d-flex justify-content-center">
+            <div class="col-md-8 card card-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <button class="btn btn-primary btn-block">
+                        <i class="fas fa-plus"></i> Publicar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock context %}

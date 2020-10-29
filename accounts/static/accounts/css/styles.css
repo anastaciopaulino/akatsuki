@@ -1,0 +1,30 @@
+
+/*********** Layout
+*****************************/
+html, body, #login, #background, #signup {
+    height: 100%;
+}
+
+/************ Login *********/
+#background {
+    position: fixed;
+    background: url(../images/bd72d5f1d625844dcf43272cc47a0641.jpg) 100%;
+    filter: blur(.2em);
+    width: 104%;
+    top: -.5%;
+    left: -3%;
+    clear: both;
+}
+
+#login .card, .card-body{
+    opacity: .8;
+}
+
+.cadastrar, .login{
+    font-size: .8em;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1em;
+}
+
+/*********** SignUp *********/

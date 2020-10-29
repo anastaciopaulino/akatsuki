@@ -1,0 +1,58 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+{% load bootstrap4 %}
+
+{% block head_block %}
+    <link rel="stylesheet" href="{% static 'accounts/css/styles.css' %}">
+    <title>Akatsuki - Cadastrar</title>
+{% endblock head_block %}
+
+{% block context %}
+    <div id="background"></div>
+    <section class="d-flex" id="signup">
+        <div class="container align-self-center">
+            <div class="d-flex justify-content-center">
+                <div class="col-md-8">
+                    <div class="card card-body">
+                        <div class="border-bottom mb-5">
+                            <h1>Akatsuki</h1>
+                        </div>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.first_name %}
+                                </div>
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.last_name %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.username %}
+                                </div>
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.email %}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.password1 %}
+                                </div>
+                                <div class="col-md-6">
+                                    {% bootstrap_field form.password2 %}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-outline-danger btn-block">
+                                Cadastrar
+                            </button>
+                            <div class="login">
+                                Se já tens uma conta Akatsuki, faça <a href="{% url 'accounts:login' %}" class="text-success">Login</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock context %}

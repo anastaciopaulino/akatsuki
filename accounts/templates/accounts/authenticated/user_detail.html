@@ -1,0 +1,73 @@
+{% extends "accounts/authenticated/base.html" %}
+{% load static %}
+
+{% block head_block %}
+    <link rel="stylesheet" href="{% static 'accounts/css/authenticated/styles.css' %}">
+    <title>Akatsuki - {{ user.get_full_name }}</title>
+{% endblock head_block %}
+
+{% block context %}
+    <div class="col-md-12 bg-danger" id="title">
+        <div class="container">
+            <h3 class="text-center">perfil</h3>
+        </div>
+    </div>
+    <section class="" id="perfil">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card card-body">
+                        <div class="d-flex justify-content-center border-bottom pb-3 mb-2">
+                            <figure>
+                                {% if user.others_info.image.url != "" %}
+                                    <a class="nav-link" href="{% url 'accounts:user-detail' username=user.username pk=user.pk %}">
+                                        <img src="{{ user.others_info.image.url }}" class="img-fluid" id="user-image">
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'accounts:user-detail' username=user.username pk=user.pk %}" >
+                                    <img src="{% static '' %}{{ user.others_info.avatar }}" class="img-fluid" id="user-image">
+                                    </a>
+                                {% endif %}
+                                <figcaption>
+                                    <i class="fas fa-camera"></i>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div>
+                            <h1>{{ user.get_full_name }}</h1>
+                            <h2>@{{ user.username }}</h2>
+                            <h3>E-mail: {{ user.email }}</h3>
+                        </div>    
+                        <div class="mt-5">
+                            <a href="" class="btn btn-block btn-outline-danger">
+                               <i class="fas fa-edit"></i> Editar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-title">
+                            <h1>Suas fotos</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                {% if posts_recentes.count > 0 %}
+                                    {% for post in posts_recentes %}
+                                        <div class="col-md-4 mt-4">
+                                            <img src="{{ post.image.thumbmnil.url }}" class="img-fluid">
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <div class="text-center col-md-12">
+                                        <h3 class="text-danger">Nenhuma foto publicada</h3>                                        
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock context %}

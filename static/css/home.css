@@ -1,0 +1,160 @@
+/*********************
+******************
+*****************
+****************
+**************** BY: Anastácio Paulino
+*****************
+******************
+**********************/
+
+/******* Layout
+*********************/
+
+#home {
+    background-image: linear-gradient(60deg, #dc3546ad, #343a4071), url(../images/bd72d5f1d625844dcf43272cc47a0641.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#home h1 {
+    font-size: 2em;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+
+#home .carousel-inner {
+    padding-right: 4em;
+    padding-left: 4em;
+}
+
+/*********** Membros **********/
+/******** informacoes ********/
+#informacoes>.container {
+    height: 23em;
+    margin-top: -3em;
+    padding: 2em 4em 4em 4em;
+    background: #343a40;
+    border-radius: 1em 1em 0em 0em;
+    color: #ffffff;
+}
+
+#informacoes .progress {
+    height: 1px;
+}
+#informacoes .progress-bar {
+    width: 70%;
+}
+
+#informacoes .item-title {
+    font-size: .8em;
+    font-weight: 300;
+}
+
+#informacoes ul {
+    list-style: none;
+}
+
+#informacoes #informacoes-menu {
+    height: 22em;
+}
+
+#informacoes .divisor {
+    height: 3em;
+    margin-left: .8em;
+    border-width: .2em;
+    border-radius: none !important;
+    background-color: none !important;
+}
+
+#informacoes ul .item {
+    width: 1.8em;
+    height: 1.8em;
+    text-align: center;
+    color: #343a40;
+    background: #ffffff;
+    border-radius: 100%;
+    transition: 1.4s;
+}
+
+#informacoes ul .item:hover {
+    color: white;
+    background: #dc3545;
+    cursor: pointer;
+    transition: 1.3s;
+}
+
+#informacoes .text {
+    font-size: .9em;
+    font-weight: 200;
+    text-align: justify;
+}
+
+
+
+/*********** Recentes ********/
+#fotos-recentes {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#fotos-recentes .item {
+    position: relative;
+    overflow: hidden;
+    transition: 1s;
+}
+
+#fotos-recentes .item:hover {
+    cursor: pointer;
+}
+
+#fotos-recentes .item-info {
+    text-align: left;
+}
+
+#fotos-recentes .item-info h1 {
+    font-size: 1.3em;
+    margin-bottom: -1px;
+}
+
+#fotos-recentes figcaption {
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    padding-bottom: .2em;
+    padding-top: .2em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, .4);
+    width: 100%;
+    opacity: 0;
+    transition: .7s;
+    font-size: 1.2em;
+}
+
+#fotos-recentes figcaption:hover {
+    opacity: 1;
+}
+
+#fotos-recentes figcaption i {
+    border-radius: 100%;
+    text-align: center;
+    padding: .3em;
+    transition: 1s;
+}
+
+#fotos-recentes figcaption i:hover {
+    background: #696b6e;
+    cursor: pointer;
+}
+
+#fotos-recentes h1 {
+    font-size: 1.8em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+#fotos-recentes .intro {
+    font-size: .9em;
+    font-weight: 300;
+}

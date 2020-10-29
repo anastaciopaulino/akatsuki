@@ -1,0 +1,82 @@
+<!doctype html>
+{% load static %}
+
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+
+    <!-- Customize style -->
+    <link rel="stylesheet" href="{% static 'accounts/css/authenticated/base.css' %}">
+
+    {% block head_block %}
+    {% endblock head_block %}
+
+  </head>
+  <body>
+
+    <header class="">
+      <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <div class="navbar-brand text-uppercase">
+            <span class="logo text-white" onclick="location.href='{% url 'index' %}'">Akatsuki</span>
+          </div>
+
+          <div class="navbar-collapse" id="nav-principal">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="{% url 'accounts:user-detail' username=user.username pk=user.id %}" class="nav-link text-white">Perfil</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Seguidores</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Seguindo</a></li>
+              <li class="nav-item"><a href="" class="nav-link text-white">Fotos</a></li>
+              <li class="nav-item"><a href="{% url 'accounts:new-photo' username=user.username pk=user.id %}" class="nav-link text-white">
+                <i class="fas fa-plus"></i> Nova foto
+              </a></li>
+              <li>
+                <form action="" method="POST">
+                    <div class="input-group">
+                        <input type="search" class="form-control" placeholder="Pesquise por membros ou imagens: ">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    {% block context %}
+    {% endblock context %}
+
+    <footer>
+      <div class="container">
+            <div class="text-center">
+              <span class="border-bottom">Akatsuki</span>
+            </div>
+            <p>
+              By: Anastácio Paulino, FOLLOW ME
+            </p>
+      </div>
+    </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+  </body>
+</html>

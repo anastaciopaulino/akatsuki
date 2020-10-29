@@ -1,0 +1,73 @@
+
+/*********** User Authenticated 
+---------------------------------*/
+
+/********** Perfil ***************/
+#perfil {
+    margin-bottom: 5em;
+}
+#perfil #user-image {
+    width: 12em;
+    height: 12em;
+    border-radius: 100%;
+}
+
+#perfil h1 {
+    font-size: 1.8em;
+    font-weight: 300;
+    text-align: center;
+}
+#perfil h2 {
+    margin-top: -.3em;
+    font-size: 1.1em;
+    font-weight: 300;
+    text-transform: lowercase;
+    text-align: center;
+}
+#perfil h3 {
+    margin-top: -.3em;
+    font-size: 1em;
+    font-weight: 300;
+    text-align: center;
+}
+
+#perfil figure{
+    position: relative;
+    overflow: hidden;
+    width: 13em;
+    height: 13em;
+    border-radius: 100%;
+}
+
+#perfil figcaption {
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    padding-bottom: .2em;
+    padding-top: .2em;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, .4);
+    width: 100%;
+    opacity: 0;
+    transition: .7s;
+    font-size: 1.2em;
+}
+
+#perfil figcaption:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#perfil figcaption i {
+    border-radius: 100%;
+    text-align: center;
+    padding: .3em;
+    transition: 1s;
+}
+#title h3{
+    font-size: 1.8em;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+#perfil .card-title

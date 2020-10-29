@@ -1,0 +1,70 @@
+/*********************
+******************
+*****************
+****************
+**************** BY: Anastácio Paulino
+*****************
+******************
+**********************/
+
+/******* Default
+----------------------*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/******* Layout 
+------------------------*/
+html, body, #home {
+    height: 100%;
+}
+
+/******** Header ********/
+header {
+    padding: 10px;
+    border-bottom: 2px solid #dc3545;
+    background-color: #343a40;
+}
+
+header a:hover {
+    color: #dc3545 !important;
+    transition: 1s;
+}
+
+header .search {
+    position: absolute;
+    margin-top: .5em;
+    margin-left: 6.5em;
+    color: #ffffff;
+}
+
+header .logo {
+    font-size: 1.3em;
+    letter-spacing: .8em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header .navbar-brand .logo {
+    cursor: pointer;
+}
+
+/******* Footer ********/
+footer {
+    margin-top: 2em;
+}
+footer span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: .3em;
+}
+
+footer p {
+    text-align: center;
+    margin-top: -.3em;
+    font-weight: 300;
+    font-size: .8em;
+}
