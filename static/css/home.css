@@ -189,3 +189,9 @@
 .function {
     margin-top: -.5em;
 }
+
+#UserDataModal #user-image {
+    width: 13em;
+    height: 13em;
+    border-radius: 100%;
+}

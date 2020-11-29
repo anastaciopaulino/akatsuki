@@ -5,7 +5,7 @@
 {% block head_block %}
     <title>Akatsuki - Home</title>
 
-    <!-- Customize Styles for home page -->
+    {# Customize Styles for home page #}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock head_block %}
 
@@ -138,7 +138,7 @@
                         </figure>
                         <div class="item-info">
                             <h1>{{ post.user.get_full_name }}</h1>
-                          <a href="" >@{{ post.user.username }}</a>
+                          <a href="#" data-toggle="modal" data-target="#UserDataModal">@{{ post.user.username }}</a>
                           <div>
                             <i class="text-warning fas fa-users"></i>
                             {{ post.user.others_info.follows.count }}
@@ -146,22 +146,24 @@
                         </div>
                     </div>
                 </div>
-                <!-- Extra large modal -->
-
+                
+              {# Modal da exibição das fotos #}
               <div class="modal fade" id="{{ post.title_url }}" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content bg-dark">
                     <div class="row my-3">
                       <div class="col-md-8 border-right">
-                        <figure class="item pl-3 pt-2">
-                          <img src="{{ post.image.url }}" class="img-fluid">
+                        <figure class="item">
+                          <div class="container">
+                            <img src="{{ post.image.url }}" class="img-fluid">
+                          </div>
                         </figure>
                       </div>
                       <div class="col-md-4">
                         <div class="container">
                           <div class="post-body">
                             <div class="media border-bottom border-dark mb-2 pb-2">
-                              <img src="{{ post.user.others_info.image.url }}" alt="Generic placeholder image" class="img-fluid" style="width: 3em; height: 3em; border-radius: 100%;">
+                              <img src="{{ post.user.others_info.image.url }}" class="img-fluid" style="width: 3em; height: 3em; border-radius: 100%;">
                               <div class="media-body" style="margin-left: -6.8em;">
                                 <span class="post-user-username">{{ post.user.get_full_name }}</span> <br>
                                 <span class="post-created">{{ post.created_at }}</span>
@@ -182,6 +184,43 @@
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {# Modal da exibição dos dados do usuários #}
+
+              <!-- Modal -->
+              <div class="modal fade" id="UserDataModal" tabindex="-1" role="dialog" aria-labelledby="UserDataModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="col-md-12 mb-1">
+                        <img src="{{ post.user.others_info.image.url }}" id="user-image">
+                      </div>
+                      <div>
+                        <h4>{{ post.user.get_full_name }}</h4>
+                        <a href="#">@{{ post.user.username }}</a><br>
+                       <strong>E-mail:</strong> {{ post.user.email }}
+                        <div class="d-flex justify-content-center">
+                          <div class="col-md-10">
+                            <textarea rows="5" disabled class="form-control">
+Lorem ipsum dolor sit amet consectetur adipisicing elit.  
+Aperiam eum architecto adipisci unde modi.  
+                            </textarea>                            
+                          </div>  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="" class="btn btn-success">Seguir</a>
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
                     </div>
                   </div>
                 </div>
