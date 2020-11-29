@@ -7,12 +7,11 @@
 {% endblock head_block %}
 
 {% block context %}
-    <div class="col-md-12 bg-danger" id="title">
-        <div class="container">
-            <h3 class="text-center">perfil</h3>
-        </div>
-    </div>
-    <section class="" id="perfil">
+    <script>
+        var nome = document.getElementById('nav-perfil')
+        nome.className += ' border-bottom border-danger'
+    </script>
+    <section class="mt-5" id="perfil">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -48,21 +47,47 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-title">
-                            <h1>Suas fotos</h1>
+                            <h1 class="border-bottom p-2">Outras informações</h1>
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                {% if posts_recentes.count > 0 %}
-                                    {% for post in posts_recentes %}
-                                        <div class="col-md-4 mt-4">
-                                            <img src="{{ post.image.thumbmnil.url }}" class="img-fluid">
+                                <div class="col-md-4">
+                                    <div class="card text-center bg-primary text-white mb-3">
+                                        <div class="card-body">
+                                          <h3>Postagens</h3>
+                                          <h1 class="display-4">
+                                            <i class="fas fa-pencil"></i> {{ posts.count }}
+                                          </h1>
+                                          <a href="" class="btn btn-outline-light btn-sm">Ver</a>
                                         </div>
-                                    {% endfor %}
-                                {% else %}
-                                    <div class="text-center col-md-12">
-                                        <h3 class="text-danger">Nenhuma foto publicada</h3>                                        
-                                    </div>
-                                {% endif %}
+                                    </div>    
+                                </div>
+
+                                {# Seguidores #}
+                                <div class="col-md-4">
+                                    <div class="card text-center bg-warning text-white mb-3">
+                                        <div class="card-body">
+                                          <h3>Seguidores</h3>
+                                          <h1 class="display-4"> 
+                                            <i class="fas fa-users"></i> {{ user.others_info.qtd_following.count }}
+                                          </h1>
+                                          <a href="" class="btn btn-outline-light btn-sm">Ver</a>
+                                        </div>
+                                    </div>    
+                                </div>
+
+                                {# Seguindo #}
+                                <div class="col-md-4">
+                                    <div class="card text-center bg-success text-white mb-3">
+                                        <div class="card-body">
+                                          <h3>Seguindo</h3>
+                                          <h1 class="display-4">
+                                            <i class="fas fa-user"></i> {{ user.others_info.qtd_followers.count }}
+                                          </h1>
+                                          <a href="" class="btn btn-outline-light btn-sm">Ver</a>
+                                        </div>
+                                    </div>    
+                                </div>
                             </div>
                         </div>
                     </div>

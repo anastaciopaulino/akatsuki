@@ -7,11 +7,10 @@
 {% endblock head_block %}
 
 {% block context %}
-    <div class="col-md-12 bg-danger" id="title">
-        <div class="container">
-            <h3 class="text-center">Nova foto</h3>
-        </div>
-    </div>
+    <script>
+        var nome = document.getElementById('nav-nf')
+        nome.className += ' border-bottom border-danger'
+    </script>
     <section class="mt-5" id="">
         <div class="container d-flex justify-content-center">
             <div class="col-md-8 card card-body">

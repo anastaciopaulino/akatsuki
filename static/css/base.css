@@ -50,9 +50,23 @@ header .logo {
 }
 
 #user-image {
-    width: 6em;
-    height: 6em;
+    width: 2em;
+    height: 2em;
     border-radius: 100%;
+}
+
+.perfil {
+    color: #ffffff;
+    transition: .7s;
+    margin-left: .8em;
+    border: 1px solid #ffffff00;
+}
+
+.perfil:hover {
+    border: 1px solid #ffffff;
+    border-radius: 2.3em;
+    color: #dc3545;
+    transition: 1s;
 }
 
 /******* Footer ********/

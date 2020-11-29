@@ -29,9 +29,13 @@ class CreateUserForm(UserCreationForm):
 
 class OthersInfoForm(forms.ModelForm):
     class Meta():
-        fields = ['sexo', 'image']
+        fields = ['sexo', 'bio', 'image']
         model = OthersInfo
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['image'].label = 'Foto de perfil'
+        self.fields['bio'].label = 'Fale um pouco de ti'
+
+field_bio = OthersInfoForm.base_fields['bio']
+field_bio.widget.attrs['rows'] = 4

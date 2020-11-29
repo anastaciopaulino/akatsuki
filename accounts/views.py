@@ -58,6 +58,7 @@ class UserDetailView(LoginRequiredMixin, generic.DetailView):
         context = super().get_context_data(*args, **kwargs)
 
         context['posts_recentes'] = PostImage.objects.filter(user__username=self.request.user.username)
+        context['posts'] = PostImage.objects.filter(user__username=self.request.user.username)
 
         if context['posts_recentes'].count() > 8:
             context['posts_recentes'] = context['posts_recentes'][:8]

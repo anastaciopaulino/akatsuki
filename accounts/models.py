@@ -33,9 +33,12 @@ SEXO_CHOICES = {
 
 class OthersInfo(models.Model):
     user = models.OneToOneField(auth.get_user_model(),related_name='others_info', on_delete=models.CASCADE)
-    follows = models.ManyToManyField(User, blank=True)
+    qtd_followers = models.ManyToManyField(User, blank=True, related_name='qtd_followers')
+    qtd_following = models.ManyToManyField(User, blank=True , related_name='qtd_following')
 
     sexo = models.CharField(max_length=9, choices=SEXO_CHOICES)
+    bio = models.TextField(max_length=160)
+    
     image = models.ImageField(upload_to=user_directory_path, blank=True, validators=[file_size_validator])
     avatar = models.CharField(max_length=100)
     created_at = models.DateField(auto_now=True)
@@ -46,9 +49,16 @@ class OthersInfo(models.Model):
     class Meta():
         ordering = ['-created_at']
     
-class Follow(models.Model):
-    user = models.OneToOneField(auth.get_user_model(),related_name='follows', on_delete=models.CASCADE)
-    followUser = models.ForeignKey(User, on_delete=models.CASCADE)
+class Followers(models.Model):
+    user = models.OneToOneField(auth.get_user_model(),related_name='followedUser', on_delete=models.CASCADE)
+    followerUser = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '@{}' .format(self.user.id)
+
+class Following(models.Model):
+    user = models.OneToOneField(auth.get_user_model(), related_name='followingUser', on_delete=models.CASCADE)
+    followingUser = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return '@{}' .format(self.user.id)

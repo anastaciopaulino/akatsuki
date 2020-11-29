@@ -11,7 +11,7 @@
 *********************/
 
 #home {
-    background-image: linear-gradient(60deg, #dc3546ad, #343a4071), url(../images/bd72d5f1d625844dcf43272cc47a0641.jpg);
+    background-image: linear-gradient(60deg, #dc3546ad, #6b757e71), url(../images/bd72d5f1d625844dcf43272cc47a0641.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -157,4 +157,35 @@
 #fotos-recentes .intro {
     font-size: .9em;
     font-weight: 300;
+}
+
+.post-body {
+    height: 100%;
+    background-color: #454647;
+    border-radius: .5em;
+    padding: .8em;
+}
+
+.post-user ul{
+    display: inline;
+    list-style: none;
+    margin-left: -5em !important;
+}
+
+.post-user li {
+    display: inline;
+    margin-right: .8em;
+}
+
+.post-created {
+    font-size: .8em;
+}
+
+.post-description {
+    font-size: .9em;
+    text-align: justify;
+}
+
+.function {
+    margin-top: -.5em;
 }

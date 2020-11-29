@@ -20,11 +20,11 @@
                                 <h1 class="">Seja bem-vindo!</h1>
                                 <p class="slogan">
                                     Juntos criaremos um mundo melhor, um mundo sem dor, sem morte.<br>
-                                    Um mundo só de vecendores.
+                                    Um mundo só de vencedores.
                                 </p>
                                 <div class="">
                                     {% if not user.is_authenticated %}
-                                        <a href="{% url 'accounts:login' %}" class="btn btn-outline-danger">
+                                        <a href="{% url 'accounts:login' %}" class="btn btn-danger">
                                             Conectar-se
                                             <i class="fas fa-edit"></i>
                                         </a>
@@ -61,7 +61,7 @@
     <section id="informacoes">
         <div class="container">
           <div class="row">
-            <div class="col-md-2 d-flex justify-content-center" id="informacoes-menu">
+            <div class="col-md-2 d-none d-md-flex justify-content-center" id="informacoes-menu">
               <div class="align-self-center">
                 <h5 class="item-title" id="item-title">Navegação</h5>
   
@@ -125,9 +125,15 @@
                         <figure class="item">
                             <img src="{{ post.image.thumbmnil.url }}" class="img-fluid">
                             <figcaption>
+                              <button class="btn text-white">
                                 <i class="fas fa-heart"></i>
+                              </button>
+                              <button class="btn text-white">
                                 <i class="fas fa-share-square"></i>
-                                <i class="fas fa-expand" data-toggle="modal" data-target="#{{ post.title_url }}"></i>
+                              </button>
+                              <button class="btn text-white" data-toggle="modal" data-target="#{{ post.title_url }}">
+                                <i class="fas fa-expand"></i>
+                              </button>
                             </figcaption>
                         </figure>
                         <div class="item-info">
@@ -147,13 +153,33 @@
                   <div class="modal-content bg-dark">
                     <div class="row my-3">
                       <div class="col-md-8 border-right">
-                        <figure class="item">
+                        <figure class="item pl-3 pt-2">
                           <img src="{{ post.image.url }}" class="img-fluid">
                         </figure>
                       </div>
-                      <div class="col-md-4 pl-3 pr-5">
-                        <div>
-                          {{ post.description }}
+                      <div class="col-md-4">
+                        <div class="container">
+                          <div class="post-body">
+                            <div class="media border-bottom border-dark mb-2 pb-2">
+                              <img src="{{ post.user.others_info.image.url }}" alt="Generic placeholder image" class="img-fluid" style="width: 3em; height: 3em; border-radius: 100%;">
+                              <div class="media-body" style="margin-left: -6.8em;">
+                                <span class="post-user-username">{{ post.user.get_full_name }}</span> <br>
+                                <span class="post-created">{{ post.created_at }}</span>
+                              </div>
+                            </div>
+                            <p class="post-description">
+                              {{ post.description }}
+                            </p>
+                            <div class="function border-bottom border-dark border">
+                              <button class="btn">
+                                <i class="fas fa-heart"></i>
+                              </button>
+                              <button class="btn">
+                                <i class="fas fa-share-square"></i>
+                              </button>
+                            </div>
+  
+                          </div>
                         </div>
                       </div>
                     </div>
